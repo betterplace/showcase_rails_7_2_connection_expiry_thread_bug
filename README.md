@@ -6,10 +6,31 @@
 
 Run
 ```bash
+# Clone and setup in /tmp
+cd /tmp/
+git clone https://github.com/betterplace/showcase_rails_7_2_connection_expiry_thread_bug
+cd showcase_rails_7_2_connection_expiry_thread_bug/
+bundle
+
+# See it fail
 bundle exec rspec spec/features/a_feature/rows_spec.rb:19
+
+# See it pass without the migration_error setting
+git checkout 82479acb2c107d2d01cfa076421d07f877c1828c
+bundle exec rspec spec/features/a_feature/rows_spec.rb:19
+
+# See diff
+git diff master config/
 ```
 
-before commit <..> its green, after <..> it fails with `ActiveRecord::ActiveRecordError` (Cannot expire connection, it is owned by a different thread).
+before commit https://github.com/betterplace/showcase_rails_7_2_connection_expiry_thread_bug/commit/6254e665c58f447b3030f2a899a7030e9d640670 its passes.
+After it fails with `ActiveRecord::ActiveRecordError` (Cannot expire connection, it is owned by a different thread).
+
+The commit sets the value of `config.active_record.migration_error` to `:page_load` in `config/environments/test.rb`.
+
+Note that the actual controller, resource, route and migration state seems not to influence the error.
+
+Running the other spec, which is not marked as `js: true` via `bundle exec rspec spec/features/a_feature/rows_spec.rb:10` or running the whole suite *does not fail*.
 
 ### Background
 
