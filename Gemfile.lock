@@ -1,3 +1,13 @@
+GIT
+  remote: https://github.com/rails/rails
+  revision: 6662c51d6ee899709f1b287046ccedf75e66b89a
+  ref: 6662c51
+  specs:
+    activerecord (7.2.1)
+      activemodel (= 7.2.1)
+      activesupport (= 7.2.1)
+      timeout (>= 0.4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -50,10 +60,6 @@ GEM
       globalid (>= 0.3.6)
     activemodel (7.2.1)
       activesupport (= 7.2.1)
-    activerecord (7.2.1)
-      activemodel (= 7.2.1)
-      activesupport (= 7.2.1)
-      timeout (>= 0.4.0)
     activestorage (7.2.1)
       actionpack (= 7.2.1)
       activejob (= 7.2.1)
@@ -143,9 +149,6 @@ GEM
       racc (~> 1.4)
     nokogiri (1.16.7-x86_64-linux)
       racc (~> 1.4)
-    parallel (1.26.3)
-    parallel_tests (4.7.2)
-      parallel
     psych (5.1.2)
       stringio
     public_suffix (6.0.1)
@@ -196,8 +199,6 @@ GEM
     reline (0.5.10)
       io-console (~> 0.5)
     rexml (3.3.8)
-    rspec-collection_matchers (1.2.1)
-      rspec-expectations (>= 2.99.0.beta1)
     rspec-core (3.13.1)
       rspec-support (~> 3.13.0)
     rspec-expectations (3.13.3)
@@ -264,16 +265,15 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  activerecord!
   bootsnap
   capybara
   debug
   importmap-rails
   jbuilder
-  parallel_tests
   puma (>= 5.0)
   rack-test
   rails (~> 7.2)
-  rspec-collection_matchers
   rspec-rails
   selenium-webdriver
   sprockets-rails
