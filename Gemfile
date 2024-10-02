@@ -47,7 +47,6 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
-  gem 'parallel_tests'
 end
 
 group :development do
@@ -64,16 +63,7 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
-  gem "capybara-screenshot"
-  gem "pry"
-  gem "pry-nav"
-  gem "pry-remote"
   gem "rack-test", require: 'rack/test'
-  gem "rspec-collection_matchers"
   gem "rspec-rails"
-  gem "rspec-retry"
-  gem "rspec_junit_formatter"
-  gem "simplecov"
-  gem "rails-controller-testing"
   gem "selenium-webdriver"
 end
