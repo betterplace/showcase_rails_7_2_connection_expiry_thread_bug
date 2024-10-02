@@ -10,5 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_30_154532) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_30_155421) do
+  create_table "rows", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 end
